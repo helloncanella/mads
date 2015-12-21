@@ -1,0 +1,18 @@
+{
+  "name": "ganesh",
+  "version": "1.0.0",
+  "description": "a mosaic for mads",
+  "main": "index.js",
+  "scripts":{
+    "start":"node index.js"
+  },
+  "dependencies": {
+    "express": "^4.10.2"
+  },
+  "keywords": [
+    "ganesh",
+    "mosaic"
+  ],
+  "author": "@helloncanella",
+  "license": "ISC"
+}
