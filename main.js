@@ -9,8 +9,6 @@ build();
 
 $(window).resize(build);
 
-console.log($('.layer'));
-
 $('.layer').sparkle({
   color: '#FFFFFF',
   count: 10000,
@@ -47,7 +45,7 @@ function build(){
       line++;
     }
 
-    let index = Math.round(Math.random()*(colors.length-1));
+    var index = Math.round(Math.random()*(colors.length-1));
 
     group.append('rect').attr({
       width:side,
