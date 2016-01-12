@@ -4,35 +4,51 @@ body{
   margin:0;
   padding:0;
   position:relative;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
 }
 
 
 #config{
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
   flex-flow: column;
   background-color:white;
   height:100%;
   padding: 0 20px 0 20px;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   position: absolute;
   z-index: 100;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
   transition:0.5s;
   width:325px;
 }
 
 #mosaic{
+  -webkit-flex-grow: 10;
+  -ms-flex-positive: 10;
   flex-grow: 10;
   background-color: royalblue;
 }
 
 .buttons{
+  display:-webkit-flex;
+  display:-ms-flexbox;
   display:flex;
 }
 
 #background .form-group button{
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   margin:5px;
 }
@@ -50,6 +66,8 @@ form h3{
 }
 
 .show-slide{
+  -webkit-transform: translateX(0%) !important;
+  -ms-transform: translateX(0%) !important;
   transform: translateX(0%) !important;
   transition:0.5s;
 }
@@ -84,6 +102,8 @@ form h3{
 
 
 .palette{
+  display:-webkit-flex;
+  display:-ms-flexbox;
   display:flex;
   margin:5px 0 5px 0;
   cursor:pointer;
@@ -94,6 +114,8 @@ form h3{
 }
 
 .color-item{
+  -webkit-flex-grow:1;
+  -ms-flex-positive:1;
   flex-grow:1;
 }
 

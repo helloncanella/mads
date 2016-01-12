@@ -28,6 +28,19 @@ $('button').click(function (e) {
 
 });
 
+$('a').on('click', function(e){
+  
+  var patternCanvas = $('.sparkle-canvas').siblings()[0];
+  
+  $(this).attr({
+    'href':patternCanvas.toDataURL(),
+    'download': "mypainting.png"
+  });
+  
+})
+
+
+
 
 generatePalettes();
 
@@ -71,12 +84,18 @@ function start(){
 
 function original (){
   mosaic.css('background',"url('assets/wall.jpg')");
+  sparkle();
   $('#trianglify-box').css('visibility','hidden');
 }
 
 function trianglify (){
+  
+  $("a#download").css('display', 'inline');
+  
   mosaic.html('');
  
+  sparkle();
+  
   var options = {
     height: $(window).height(),
     width: $(window).width(),
@@ -110,5 +129,65 @@ function configPaletteSelector(){
 }
 
 function config (){
-  configPaletteSelector()
+  // configSparkle();
+  configPaletteSelector();
 }
+
+
+function sparkle(){
+  
+  mosaic.html('');
+  
+  var options = {
+    color: "#FFFFFF",
+    count: 700,
+    overlap: 0,
+    speed: 0,
+    minSize: 2,
+    maxSize: 5,
+    direction: "both"
+  }
+  
+  mosaic.sparkle(options);
+  mosaic.trigger("start.sparkle");
+  
+}
+
+// // function configSparkle(){
+  
+//   $('input#count').slider({
+//     min:100,
+//     max:1000,
+//     value:300,
+//     step:10
+//   });
+
+//   $('input#speed').slider({
+//     min:0,
+//     max:10,
+//     value:0.5,
+//     precision:1,
+//     step:0.1
+//   });
+  
+//   $('input#minSize').slider({
+//     min:1,
+//     max:10,
+//     value:2,
+//     step:1
+//   });
+  
+//   $('input#maxSize').slider({
+//     min:1,
+//     max:10,
+//     value:4,
+//     step:1
+//   });
+  
+//   $('#sparkle *').on('slide',function(e){
+//     // console.log('sparkle');
+//     sparkle();
+//   });
+  
+ 
+// }
