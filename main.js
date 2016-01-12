@@ -1,59 +1,57 @@
-/*global $, d3, window*/
-/*jshint -W003*/
+var mosaic = $('#mosaic');
+var palettes = ['YlGn','YlGnBu','GnBu','BuGn','PuBuGn','PuBu','BuPu','RdPu','PuRd','OrRd','YlOrRd','YlOrBr','Purples','Blues','Greens','Oranges','Reds','Greys','PuOr','BrBG','PRGn','PiYG', 'RdBu','RdGy','RdYlBu','Spectral','RdYlGn'];
+var colorItems = ['q0-9','q1-9','q2-9','q3-9','q4-9','q5-9','q6-9','q7-9','q8-9']; 
 
-'use strict';
+$('input').slider();
 
-var colors = ['#907B63','#E7D382','#736002','#D0561A','#DB8E36'];
+$('button').click(function (e) {
+  e.preventDefault();
+  mosaic.html('');
+  
+  $(this).css('background','#E6E6E6');
+  $(this).siblings().css('background','white');
+  
+  var id = $(this).get(0).id;
 
-build();
+  if(id=='original'){
+    original();
+  }else if (id=='trianglify'){
+    trianglify();
+  }
 
-$(window).resize(build);
-
-$('.layer').sparkle({
-  color: '#FFFFFF',
-  count: 10000,
-  overlap: 0,
-  speed: 1,
-  minSize: 4,
-  maxSize: 7,
-  direction: 'both'
 });
 
-function build(){
-  $('svg').remove();
-
-  var height = $('body').height(),
-    width = $('body').width(),
-    side = 15,
-    distance = 18,
-    heightN = Math.round(height * 1.2 / distance),
-    widthN = Math.round(width * 1.2 / distance),
-    total = heightN * widthN,
-    line = 0,
-    column = 0;
+generatePalettes();
 
 
-  var group = d3.select('body').append('svg').attr({
-    width: width,
-    height: height
-  }).append('g');
+function generatePalettes(){
+  
+  palettes.forEach(function(palette,i){
 
+    $("<div class='palette "+palette+"' data-palette="+palette+"></div>").appendTo("#palettes");
 
-  for (var i = 1; i < total; i++) {
-    column = i % widthN;
-    if (column === 1) {
-      line++;
-    }
+    colorItems.forEach(function(colorItem){
 
-    var index = Math.round(Math.random()*(colors.length-1));
-
-    group.append('rect').attr({
-      width:side,
-      height:side,
-      fill: colors[index],
-      x: distance*(column-1),
-      y: distance*(line-1)
+      $("<div class='color-item "+colorItem+"'></div>").appendTo("."+palette);
+    
+      //Making th color-item a square
+      var width = $('.color-item').width();
+      $('.color-item').css('height', width);
+    
     });
+    
+    
 
-  }
+  });
+  
+  
+}
+
+
+function original (){
+  mosaic.css('background',"url('assets/wall.jpg')");
+}
+
+function trianglify (){
+  mosaic.css('background','royalblue');
 }

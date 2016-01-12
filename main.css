@@ -4,12 +4,64 @@ body{
   margin:0;
   padding:0;
   position:relative;
+  display: flex;
 }
 
-.layer{
-  position:absolute;
-  z-index:5;
-  height: 100%;
-  width:100%;
-  background-color: none;
+
+#config{
+  display: flex;
+  flex-flow: column;
+  background-color:white;
+  height:100%;
+  padding: 0 20px 0 20px;
+  flex-grow: 1;
 }
+
+#mosaic{
+  flex-grow: 10;
+  background-color: royalblue;
+}
+
+#background .buttons{
+  display:flex;
+}
+
+#background .form-group button{
+  flex-grow: 1;
+  margin:5px;
+}
+
+form h3{
+  font-size: 15px;
+  font-weight: 700;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.slider{
+  display: block;
+}
+
+#palettes {
+  height:25vh;
+  overflow:scroll;
+  overflow-x:hidden;
+}
+
+.palette{
+  display:flex;
+  margin:5px 0 5px 0;
+}
+
+.color-item{
+  flex-grow:1;
+}
+
+
+/*.layer{*/
+/*  position:absolute;*/
+/*  z-index:5;*/
+/*  height: 100%;*/
+/*  width:100%;*/
+/*}*/
