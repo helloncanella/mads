@@ -15,6 +15,10 @@ body{
   height:100%;
   padding: 0 20px 0 20px;
   flex-grow: 1;
+  position: absolute;
+  z-index: 100;
+  transform: translateX(-100%);
+  transition:0.5s;
 }
 
 #mosaic{
@@ -43,15 +47,38 @@ form h3{
   display: block;
 }
 
+.show-slide{
+  transform: translateX(0%) !important;
+  transition:0.5s;
+}
+
 #palettes {
   height:25vh;
   overflow:scroll;
   overflow-x:hidden;
+ 
+  
 }
+
+#settings{
+  position:absolute;
+  color:white;
+  top:15px;
+  right:35px;
+  font-size:2.5em;
+  cursor:pointer;
+}
+
+
 
 .palette{
   display:flex;
   margin:5px 0 5px 0;
+  cursor:pointer;
+}
+
+#trianglify-box{
+  visibility:hidden;
 }
 
 .color-item{
